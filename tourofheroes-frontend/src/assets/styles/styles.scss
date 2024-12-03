@@ -1,0 +1,129 @@
+// src/styles/styles.scss
+
+// ------------------
+// Import des fichiers externes
+// ------------------
+
+// Importer les variables personnalisées (assurez-vous que ce fichier existe)
+@import '../styles/variables'; // Si `variables.scss` est dans `src/assets/styles/`
+
+
+
+// Importer Bootstrap et ses mixins
+@import "bootstrap/scss/bootstrap";
+
+@import "bootstrap/scss/mixins";
+
+// ------------------
+// Global Styles
+// ------------------
+
+/* Body */
+body {
+  margin: 2em;
+  color: #333;
+  font-family: Cambria, Georgia, serif;
+}
+
+/* Global font */
+* {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Input et boutons de base */
+input[type="text"], button {
+  color: #333;
+  font-family: Cambria, Georgia, serif;
+}
+
+/* Personnalisation des titres */
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+
+h2, h3 {
+  color: #444;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: lighter;
+}
+
+/* Styles des boutons de base */
+button {
+  background-color: #eee;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  color: black;
+  font-size: 1.2rem;
+  padding: 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+
+  &:disabled {
+    background-color: #eee;
+    color: #aaa;
+    cursor: not-allowed;
+  }
+}
+
+// ------------------
+// Bootstrap Customization
+// ------------------
+
+// Personnalisation globale des boutons
+.btn {
+  font-size: 1rem; // Taille de la police
+  font-weight: bold; // Poids de la police
+  border-radius: 0.5rem; // Rayon des bords des boutons
+}
+
+.btn-primary {
+  background-color: #007bff; // Couleur de fond du bouton principal
+  border-color: #007bff;
+  
+  &:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+}
+
+// ------------------
+// Layout & Containers
+// ------------------
+
+/* Largeur et espacement des containers */
+.container {
+  max-width: 1140px;  // Largeur maximale des containers
+  padding-left: 15px; // Espacement intérieur
+  padding-right: 15px;
+}
+
+// ------------------
+// Miscellaneous & Other Styles
+// ------------------
+
+// Utilisation d'un mixin pour ajouter des ombres aux boutons
+.btn-shadow {
+  @include box-shadow($btn-box-shadow); // Assurez-vous que $btn-box-shadow est défini dans vos variables
+}
+
+// ------------------
+// Custom Utility Classes (si nécessaire)
+// ------------------
+
+// Exemple : Marges personnalisées
+.m-2 {
+  margin: 2rem;
+}
+
+.mt-2 {
+  margin-top: 2rem;
+}

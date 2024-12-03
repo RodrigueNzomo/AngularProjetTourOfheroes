@@ -1,25 +1,31 @@
 <h2>My Heroes</h2>
+
+<!-- Formulaire pour ajouter un héros avec un message d'erreur -->
+<div class="add-hero">
+    <input type="text" [(ngModel)]="newHeroName" placeholder="Enter new hero name" [class.error]="newHeroName === ''" />
+    <button (click)="addHero()">Add Hero</button>
+    <p *ngIf="newHeroName === ''" class="error-message">Hero name cannot be empty.</p>
+</div>
+
+<!-- Liste des héros -->
 <ul class="heroes">
     <li *ngFor="let hero of heroes" class="hero-item">
-        <button type="button" (click)="onSelect(hero)" [ngClass]="{ 'selected': hero === selectedHero }"
-            [attr.aria-label]="'Select ' + hero.name + ' hero'">
-            <span class="badge">{{ hero.id }}</span>
+        <button type="button" (click)="onSelect(hero)" [ngClass]="{ 'selected': hero === selectedHero }">
+            <span class="badge">{{ hero.id }} </span>
             <span class="name">{{ hero.name }}</span>
         </button>
+        <!-- Bouton de suppression stylisé en petit carré -->
+        <button class="delete-btn" (click)="deleteHero(hero)">🗑️</button>
     </li>
 </ul>
 
-<h2>{{ selectedHero?.name | uppercase }} Details</h2>
-
+<!-- Détails du héros sélectionné -->
+<h2 *ngIf="selectedHero">{{ selectedHero.name | uppercase }} Details</h2>
 <div *ngIf="selectedHero">
-    <span>Id: </span>{{ selectedHero.id }}
+    <p><span>Id: </span>{{ selectedHero.id }}</p>
+    <p><span>Name: </span>{{ selectedHero.name }}</p>
+    <p><span>Action: </span>{{ selectedHero.action }}</p>
 </div>
 
-<div *ngIf="selectedHero">
-    <span>Name: </span>{{ selectedHero.name }}
-</div>
-
-<div *ngIf="selectedHero">
-    <label for="name">Hero name:</label>
-    <input id="name" [(ngModel)]="selectedHero.name" placeholder="Enter hero name" class="hero-input" />
-</div>
+<!-- Bouton pour désélectionner un héros -->
+<button *ngIf="selectedHero" (click)="clearSelection()">Deselect Hero</button>
