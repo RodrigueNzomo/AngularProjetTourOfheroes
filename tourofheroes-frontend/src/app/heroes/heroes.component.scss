@@ -1,0 +1,78 @@
+$primary-color: #007bff;
+$hover-color: #e0e0e0;
+$focus-border-color: #007bff;
+$background-color: #f9f9f9;
+$selected-background-color: $primary-color;
+$badge-color: $primary-color;
+$badge-text-color: #fff;
+$button-padding: 10px;
+$font-weight-bold: bold;
+
+.heroes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+
+  .hero-item {
+    margin: 5px 0;
+    
+    button {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+      width: 100%;
+      background-color: $background-color;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.2s;
+
+      &.selected {
+        background-color: $selected-background-color;
+        color: $badge-text-color;
+        transform: scale(1.05);
+      }
+
+      .badge {
+        background-color: $badge-color;
+        color: $badge-text-color;
+        border-radius: 50%;
+        padding: 0 10px;
+        margin-right: 10px;
+        font-weight: $font-weight-bold;
+      }
+
+      .name {
+        font-size: 1.2rem;
+        font-weight: 500;
+      }
+
+      &:hover {
+        background-color: $hover-color;
+        transform: scale(1.03);
+      }
+    }
+  }
+}
+
+.hero-input {
+  width: 100%;
+  padding: 8px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+h2 {
+  font-size: 1.5rem;
+  color: #333;
+}
+
+div {
+  margin-bottom: 10px;
+
+  span {
+    font-weight: bold;
+  }
+}
