@@ -1,7 +1,7 @@
 <h2>My Heroes</h2>
 <ul class="heroes">
     <li *ngFor="let hero of heroes" class="hero-item">
-        <button type="button" (click)="selectHero(hero)" [ngClass]="{ 'selected': hero === selectedHero }"
+        <button type="button" (click)="onSelect(hero)" [ngClass]="{ 'selected': hero === selectedHero }"
             [attr.aria-label]="'Select ' + hero.name + ' hero'">
             <span class="badge">{{ hero.id }}</span>
             <span class="name">{{ hero.name }}</span>

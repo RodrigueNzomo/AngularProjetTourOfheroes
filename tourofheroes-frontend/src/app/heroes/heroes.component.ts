@@ -3,6 +3,11 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HEROES } from '../mock-heroes'; // Assure-toi que tu as bien cette liste de héros dans ton fichier mock
 
+interface Hero {
+  id: number;
+  name: string;
+}
+
 @Component({
   selector: 'app-heroes',
   standalone: true,
@@ -12,11 +17,9 @@ import { HEROES } from '../mock-heroes'; // Assure-toi que tu as bien cette list
 })
 export class HeroesComponent {
   heroes = HEROES; // Liste des héros
-  hero = { id: 1, name: 'Windstorm' }; // Héros actuellement sélectionné
-  selectedHero: { id: number; name: string } | null = null; // Variable pour l'héro sélectionné
+  selectedHero?: Hero; // Déclaration d'une propriété pour le héros sélectionné
 
-  // Méthode pour sélectionner un héros
-  selectHero(selectedHero: { id: number; name: string }) {
-    this.selectedHero = selectedHero;
+  onSelect(hero: Hero): void {
+    this.selectedHero = hero; // Méthode pour sélectionner un héros
   }
 }
